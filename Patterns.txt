@@ -1,0 +1,7 @@
+-- Абстрактный (фабричный) метод --
+DocumentFileStore реализует абстрактрый класс DocumentStoreBase,
+предоставляющий базовое описание работы с хранилищем документов.
+
+-- Адапртер --
+IDocumentArchiveAdapter и IDocumentCryptoAdapter (DocumentArchiveAdapter и DocumentCryptoAdapter)
+Описывают свои интерфейсы (обёртку) для работы с внешними библиотеками
