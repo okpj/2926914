@@ -5,7 +5,7 @@ namespace FakeStore
     /// <summary>
     /// Хранилище документов
     /// </summary>
-    public class DocumentStore
+    public sealed class DocumentStore
     {
         #region Поля и свойства
 

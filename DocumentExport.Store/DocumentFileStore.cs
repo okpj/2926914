@@ -7,7 +7,7 @@ namespace DocumentExport.Store
     /// </summary>
     public sealed class DocumentFileStore : DocumentStoreBase
     {
-        #region Методы
+        #region Базовый класс
 
         public override IEnumerable<Document> LoadDocuments()
         {
@@ -16,7 +16,6 @@ namespace DocumentExport.Store
         }
 
         #endregion
-
 
         #region Конструкторы
 

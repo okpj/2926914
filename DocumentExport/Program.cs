@@ -3,38 +3,57 @@ using DocumentExport.Model.Extension;
 using DocumentExport.Service;
 using DocumentExport.Store;
 
-class Program
+namespace DocumentExport
 {
     /// <summary>
-    /// Параметр, указывющий на необходимость архивации
+    /// Класс Program
     /// </summary>
-    private static string archiveParameter = "archive";
-
-    /// <summary>
-    /// Параметр, указывющий на необходимость шифрования
-    /// </summary>
-    private static string encryptParameter = "encrypt";
-
-    static void Main(string[] args)
+    internal sealed class Program
     {
-        string path = "C:/docs";
+        #region Поля и свойства
 
-        IDocumentStore documentStore = new DocumentFileStore(path);
-        var documents = documentStore.LoadDocuments();
+        /// <summary>
+        /// Параметр, указывющий на необходимость архивации
+        /// </summary>
+        private static string archiveParameter = "archive";
 
-        Console.WriteLine("--------------------");
-        Console.WriteLine(documents.CreateStringBuilderDescription());
+        /// <summary>
+        /// Параметр, указывющий на необходимость шифрования
+        /// </summary>
+        private static string encryptParameter = "encrypt";
 
-        if (args.Contains(encryptParameter))
+        #endregion
+
+        #region Методы
+
+        /// <summary>
+        /// Точка входа в программу
+        /// </summary>
+        /// <param name="args">Аргументы, с которыми запускается программа</param>
+        private static void Main(string[] args)
         {
-            var cryptoService = new DocumentCryptoAdapter();
-            cryptoService.Encrypt(path);
+            string path = "C:/docs";
+
+            IDocumentStore documentStore = new DocumentFileStore(path);
+            var documents = documentStore.LoadDocuments();
+
+            Console.WriteLine("--------------------");
+            Console.WriteLine(documents.CreateStringBuilderDescription());
+
+            if (args.Contains(encryptParameter))
+            {
+                var cryptoService = new DocumentCryptoAdapter();
+                cryptoService.Encrypt(path);
+            }
+
+            if (args.Contains(archiveParameter))
+            {
+                var archiveService = new DocumentArchiveAdapter();
+                archiveService.Archive(path);
+            }
         }
 
-        if (args.Contains(archiveParameter))
-        {
-            var archiveService = new DocumentArchiveAdapter();
-            archiveService.Archive(path);
-        }
+        #endregion
     }
 }
+

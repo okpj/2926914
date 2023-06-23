@@ -8,7 +8,7 @@ namespace DocumentExport.Store
     /// </summary>
     public abstract class DocumentStoreBase : IDocumentStore
     {
-        #region Методы
+        #region IDocumentStore
 
         public abstract IEnumerable<Document> LoadDocuments();
 

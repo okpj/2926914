@@ -8,10 +8,16 @@ namespace DocumentExport.Service
     /// </summary>
     public class DocumentCryptoAdapter : IDocumentCryptoAdapter
     {
+        #region Поля и свойства
+
         /// <summary>
         /// Криптопровайдер
         /// </summary>
         private readonly CryptoService cryptoService = new CryptoService();
+
+        #endregion
+
+        #region IDocumentCryptoAdapter
 
         public void Encrypt(string path)
         {
@@ -21,5 +27,7 @@ namespace DocumentExport.Service
             Console.WriteLine("\n\r--------------------");
             Console.WriteLine($"Файлы в папке {path} зашифрованы");
         }
+
+        #endregion
     }
 }
