@@ -1,20 +1,17 @@
 ﻿namespace FakeLibraries
 {
     /// <summary>
-    /// Библиотека шифрования
+    /// Библиотека шифрования.
     /// </summary>
     public sealed class CryptoService
     {
         #region Методы
 
         /// <summary>
-        /// Зашифровать
+        /// Зашифровать.
         /// </summary>
-        /// <param name="plainObject">Открытый массив байт</param>
-        /// <returns>Зашифрованный массив байт</returns>
-        public byte[] EncryptByteArray(byte[] plainObject)
+        public void EncryptByteArray()
         {
-            return plainObject;
         }
 
         #endregion

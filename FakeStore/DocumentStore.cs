@@ -71,6 +71,7 @@ namespace FakeStore
             SecondStructure,
             ThirdDocument
         };
+
         #endregion
 
         #region Методы
@@ -85,5 +86,6 @@ namespace FakeStore
         }
 
         #endregion
+
     }
 }
