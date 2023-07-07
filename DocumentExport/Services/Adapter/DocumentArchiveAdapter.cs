@@ -3,7 +3,7 @@
 namespace DocumentExport.Services.Adapter
 {
     /// <summary>
-    /// Адаптер для архивации файлов
+    /// Адаптер для архивации файлов.
     /// </summary>
     public sealed class DocumentArchiveAdapter : IDocumentArchiveAdapter
     {

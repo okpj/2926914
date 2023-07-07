@@ -10,9 +10,7 @@
         /// <summary>
         /// Заархивировать.
         /// </summary>
-        public void ArchiveByteArray()
-        {
-        }
+        public void ArchiveByteArray() { }
 
         #endregion
     }

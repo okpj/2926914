@@ -10,9 +10,7 @@
         /// <summary>
         /// Зашифровать.
         /// </summary>
-        public void EncryptByteArray()
-        {
-        }
+        public void EncryptByteArray() { }
 
         #endregion
     }
