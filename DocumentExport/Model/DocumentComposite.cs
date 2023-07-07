@@ -44,11 +44,6 @@ namespace DocumentExport.Model
             this.DocumentComponentsCollection.Add(documentComponent);
         }
 
-        void IDocumentComposite.AddComponent(IDocumentComponent documentComponent)
-        {
-            throw new NotImplementedException();
-        }
-
         #endregion
 
         #region Конструкторы

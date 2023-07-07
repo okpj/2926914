@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33502.453
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DocumentExport", "DocumentExport.csproj", "{3C4C6B6C-1F20-4FB7-824E-857320E8E4B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DocumentExport", ".\DocumentExport\DocumentExport.csproj", "{3C4C6B6C-1F20-4FB7-824E-857320E8E4B8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Fake", "Fake", "{B649607D-771A-461F-8E64-4485A1C3AB8F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FakeLibraries", "..\FakeLibraries\FakeLibraries.csproj", "{C9528B56-77CE-4232-A4A4-3DAC50ED60A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FakeLibraries", ".\FakeLibraries\FakeLibraries.csproj", "{C9528B56-77CE-4232-A4A4-3DAC50ED60A8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
