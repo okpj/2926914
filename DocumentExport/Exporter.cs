@@ -1,4 +1,4 @@
-﻿using DocumentExport.Model.Interfaces;
+﻿using DocumentExport.Model;
 using DocumentExport.Services.Adapter;
 
 namespace DocumentExport
@@ -31,7 +31,7 @@ namespace DocumentExport
         /// <param name="path">Путь до папки, в которую выполнить экспорт.</param>
         /// <param name="isNeedEncrypt">Признак того, нужно ли шифрование.</param>
         /// <param name="isNeedArchive">Признак того, нужна ли архивация.</param>
-        internal void Export(IEnumerable<IComponent> documentComponents, string path,
+        internal void Export(IEnumerable<ComponentBase> documentComponents, string path,
             bool isNeedEncrypt, bool isNeedArchive)
         {
             Console.WriteLine("--------------------");

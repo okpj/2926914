@@ -1,19 +1,31 @@
-﻿using DocumentExport.Model.Interfaces;
-using System.Text;
+﻿using System.Text;
 
 namespace DocumentExport.Model
 {
     /// <summary>
     /// Составной документ.
     /// </summary>
-    internal class DocumentComposite : ComponentBase, IComposite
+    internal class DocumentComposite : ComponentBase
     {
         #region Поля и свойства
 
         /// <summary>
         /// Состав комплекта документа.
         /// </summary>
-        private List<IComponent> documentComponentsCollection = new List<IComponent>();
+        private List<ComponentBase> documentComponentsCollection = new List<ComponentBase>();
+
+        #endregion
+
+        #region Методы
+
+        /// <summary>
+        /// Добавить компонент в комплект.
+        /// </summary>
+        /// <param name="documentComponent">Компонент комплекта.</param>
+        public void AddComponent(ComponentBase documentComponent)
+        {
+            this.documentComponentsCollection.Add(documentComponent);
+        }
 
         #endregion
 
@@ -22,7 +34,7 @@ namespace DocumentExport.Model
         public override string GetDescription(int level)
         {
             StringBuilder description = new StringBuilder();
-            description.AppendFormat("{0}{1}", new string(' ', level * 2), this.Name);
+            description.AppendFormat("{0}{1}", base.CreateMargin(level), this.Name);
             level++;
 
             foreach (var item in this.documentComponentsCollection)
@@ -32,15 +44,6 @@ namespace DocumentExport.Model
             }
 
             return description.ToString();
-        }
-
-        #endregion
-
-        #region IComposite
-
-        public void AddComponent(IComponent documentComponent)
-        {
-            this.documentComponentsCollection.Add(documentComponent);
         }
 
         #endregion

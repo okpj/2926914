@@ -1,4 +1,4 @@
-﻿using DocumentExport.Model.Interfaces;
+﻿using DocumentExport.Model;
 
 namespace DocumentExport.Storage
 {
@@ -11,6 +11,6 @@ namespace DocumentExport.Storage
         /// Загрузить документы.
         /// </summary>
         /// <returns>Коллекция документов.</returns>
-        IEnumerable<IComponent> Load();
+        IEnumerable<ComponentBase> Load();
     }
 }
