@@ -48,11 +48,11 @@ namespace DocumentExport.Storage
       firstComposite.AddComponent(secondComposite);
 
       return new List<ComponentBase>()
-            {
-                firstDocument,
-                firstComposite,
-                fifthDocument
-            };
+      {
+        firstDocument,
+        firstComposite,
+        fifthDocument
+      };
     }
 
     #endregion

@@ -20,7 +20,7 @@ namespace DocumentExport.Services.Adapter
 
     public void Encrypt(string path)
     {
-      cryptoService.EncryptByteArray();
+      this.cryptoService.EncryptByteArray();
 
       Console.WriteLine("\n\r--------------------");
       Console.WriteLine($"Файлы в папке {path} зашифрованы");

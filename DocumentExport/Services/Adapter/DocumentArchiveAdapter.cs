@@ -20,7 +20,7 @@ namespace DocumentExport.Services.Adapter
 
     public void Archive(string path)
     {
-      archiver.ArchiveByteArray();
+      this.archiver.ArchiveByteArray();
 
       Console.WriteLine("\n\r--------------------");
       Console.WriteLine($"Файлы в папке {path} упакованы в архив");

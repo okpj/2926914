@@ -34,7 +34,7 @@ namespace DocumentExport.Model
     public override string GetDescription(int level)
     {
       StringBuilder description = new StringBuilder();
-      description.AppendFormat("{0}{1}", CreateMargin(level), Name);
+      description.AppendFormat("{0}{1}", this.CreateMargin(level), this.Name);
       level++;
 
       foreach (var item in this.documentComponentsCollection)

@@ -1,6 +1,6 @@
-﻿using DocumentExport.Services.Adapter;
-using DocumentExport.Storage;
+﻿using DocumentExport.Storage;
 using DocumentExport.Export;
+using DocumentExport.Services.Adapter;
 
 namespace DocumentExport
 {
@@ -12,12 +12,12 @@ namespace DocumentExport
     #region Поля и свойства
 
     /// <summary>
-    /// Параметр, указывющий на необходимость архивации.
+    /// Параметр, указывающий на необходимость архивации.
     /// </summary>
     private const string ArchiveParameter = "archive";
 
     /// <summary>
-    /// Параметр, указывющий на необходимость шифрования.
+    /// Параметр, указывающий на необходимость шифрования.
     /// </summary>
     private const string EncryptParameter = "encrypt";
 
@@ -36,8 +36,22 @@ namespace DocumentExport
       IDocumentStorage documentStorage = new DocumentFileStorage();
       var documents = documentStorage.Load();
 
-      var exporter = new Exporter(new DocumentCryptoAdapter(), new DocumentArchiveAdapter());
-      exporter.Export(documents, path, args.Contains(EncryptParameter), args.Contains(ArchiveParameter));
+      var handlers = new List<ExportHandler>();
+      if (args.Contains(EncryptParameter))
+      {
+        IDocumentCryptoAdapter documentCryptoAdapter = new DocumentCryptoAdapter();
+        handlers.Add(new ExportHandler(() => documentCryptoAdapter.Encrypt(path)));
+      }
+
+      if (args.Contains(ArchiveParameter))
+      {
+        IDocumentArchiveAdapter documentArchiveAdapter = new DocumentArchiveAdapter();
+        handlers.Add(new ExportHandler(() => documentArchiveAdapter.Archive(path)));
+      }
+
+      IExport exportStrategy = new FileSystemExport(path, handlers);
+
+      exportStrategy.ExecuteExport(documents);
     }
 
     #endregion

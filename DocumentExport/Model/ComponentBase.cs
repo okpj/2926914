@@ -17,6 +17,11 @@
     /// </summary>
     public string Name { get; set; }
 
+    /// <summary>
+    /// Коэффициент для отступа.
+    /// </summary>
+    private const int MarginCoefficient = 2;
+
     #endregion
 
     #region Методы
@@ -35,7 +40,7 @@
     /// <returns>Строка отступа</returns>
     protected string CreateMargin(int level)
     {
-      return new string(' ', level * 2);
+      return new string(' ', level * MarginCoefficient);
     }
 
     #endregion
