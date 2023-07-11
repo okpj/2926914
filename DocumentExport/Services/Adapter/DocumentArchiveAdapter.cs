@@ -2,30 +2,30 @@
 
 namespace DocumentExport.Services.Adapter
 {
+  /// <summary>
+  /// Адаптер для архивации файлов.
+  /// </summary>
+  public sealed class DocumentArchiveAdapter : IDocumentArchiveAdapter
+  {
+    #region Поля и свойства
+
     /// <summary>
-    /// Адаптер для архивации файлов.
+    /// Архиватор.
     /// </summary>
-    public sealed class DocumentArchiveAdapter : IDocumentArchiveAdapter
+    private readonly Archiver archiver = new Archiver();
+
+    #endregion
+
+    #region IDocumentArchiveAdapter
+
+    public void Archive(string path)
     {
-        #region Поля и свойства
+      archiver.ArchiveByteArray();
 
-        /// <summary>
-        /// Архиватор.
-        /// </summary>
-        private readonly Archiver archiver = new Archiver();
-
-        #endregion
-
-        #region IDocumentArchiveAdapter
-
-        public void Archive(string path)
-        {
-            archiver.ArchiveByteArray();
-
-            Console.WriteLine("\n\r--------------------");
-            Console.WriteLine($"Файлы в папке {path} упакованы в архив");
-        }
-
-        #endregion
+      Console.WriteLine("\n\r--------------------");
+      Console.WriteLine($"Файлы в папке {path} упакованы в архив");
     }
+
+    #endregion
+  }
 }

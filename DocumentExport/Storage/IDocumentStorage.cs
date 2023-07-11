@@ -2,15 +2,15 @@
 
 namespace DocumentExport.Storage
 {
+  /// <summary>
+  /// Хранилище документов.
+  /// </summary>
+  internal interface IDocumentStorage
+  {
     /// <summary>
-    /// Хранилище документов.
+    /// Загрузить документы.
     /// </summary>
-    internal interface IDocumentStorage
-    {
-        /// <summary>
-        /// Загрузить документы.
-        /// </summary>
-        /// <returns>Коллекция документов.</returns>
-        IEnumerable<ComponentBase> Load();
-    }
+    /// <returns>Коллекция документов.</returns>
+    IEnumerable<ComponentBase> Load();
+  }
 }

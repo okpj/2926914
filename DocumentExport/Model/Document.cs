@@ -1,17 +1,17 @@
 ﻿namespace DocumentExport.Model
 {
-    /// <summary>
-    /// Документ, у которого нет дочерних документов.
-    /// </summary>
-    internal class Document : ComponentBase
+  /// <summary>
+  /// Документ, у которого нет дочерних документов.
+  /// </summary>
+  internal class Document : ComponentBase
+  {
+    #region Базовый класс
+
+    public override string GetDescription(int level)
     {
-        #region Базовый класс
-
-        public override string GetDescription(int level)
-        {
-            return $"{base.CreateMargin(level)}{this.Name}";
-        }
-
-        #endregion
+      return $"{CreateMargin(level)}{Name}";
     }
+
+    #endregion
+  }
 }

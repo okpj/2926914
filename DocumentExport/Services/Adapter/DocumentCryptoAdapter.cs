@@ -2,30 +2,30 @@
 
 namespace DocumentExport.Services.Adapter
 {
+  /// <summary>
+  /// Адаптер для шифрования файлов.
+  /// </summary>
+  public class DocumentCryptoAdapter : IDocumentCryptoAdapter
+  {
+    #region Поля и свойства
+
     /// <summary>
-    /// Адаптер для шифрования файлов.
+    /// Криптопровайдер.
     /// </summary>
-    public class DocumentCryptoAdapter : IDocumentCryptoAdapter
+    private readonly CryptoService cryptoService = new CryptoService();
+
+    #endregion
+
+    #region IDocumentCryptoAdapter
+
+    public void Encrypt(string path)
     {
-        #region Поля и свойства
+      cryptoService.EncryptByteArray();
 
-        /// <summary>
-        /// Криптопровайдер.
-        /// </summary>
-        private readonly CryptoService cryptoService = new CryptoService();
-
-        #endregion
-
-        #region IDocumentCryptoAdapter
-
-        public void Encrypt(string path)
-        {
-            cryptoService.EncryptByteArray();
-
-            Console.WriteLine("\n\r--------------------");
-            Console.WriteLine($"Файлы в папке {path} зашифрованы");
-        }
-
-        #endregion
+      Console.WriteLine("\n\r--------------------");
+      Console.WriteLine($"Файлы в папке {path} зашифрованы");
     }
+
+    #endregion
+  }
 }
