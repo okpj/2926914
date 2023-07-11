@@ -3,7 +3,7 @@
     /// <summary>
     /// Документ, у которого нет дочерних документов.
     /// </summary>
-    internal class Document : DocumentComponentBase
+    internal class Document : ComponentBase
     {
         #region Базовый класс
 

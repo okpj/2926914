@@ -6,14 +6,14 @@ namespace DocumentExport.Model
     /// <summary>
     /// Составной документ.
     /// </summary>
-    internal class DocumentComposite : DocumentComponentBase, IDocumentComposite
+    internal class DocumentComposite : ComponentBase, IComposite
     {
         #region Поля и свойства
 
         /// <summary>
         /// Состав комплекта документа.
         /// </summary>
-        private List<IDocumentComponent> documentComponentsCollection;
+        private List<IComponent> documentComponentsCollection = new List<IComponent>();
 
         #endregion
 
@@ -36,23 +36,11 @@ namespace DocumentExport.Model
 
         #endregion
 
-        #region IDocumentComposite
+        #region IComposite
 
-        public void AddComponent(IDocumentComponent documentComponent)
+        public void AddComponent(IComponent documentComponent)
         {
             this.documentComponentsCollection.Add(documentComponent);
-        }
-
-        #endregion
-
-        #region Конструкторы
-
-        /// <summary>
-        /// Конструктор.
-        /// </summary>
-        public DocumentComposite()
-        {
-            this.documentComponentsCollection = new List<IDocumentComponent>();
         }
 
         #endregion

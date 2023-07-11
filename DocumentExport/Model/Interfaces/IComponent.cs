@@ -1,9 +1,9 @@
 ﻿namespace DocumentExport.Model.Interfaces
 {
     /// <summary>
-    /// Компонент комплекта документов.
+    /// Компонент.
     /// </summary>
-    internal interface IDocumentComponent
+    internal interface IComponent
     {
         /// <summary>
         /// Идентификатор документа.

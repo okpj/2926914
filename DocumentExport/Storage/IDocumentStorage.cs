@@ -11,6 +11,6 @@ namespace DocumentExport.Storage
         /// Загрузить документы.
         /// </summary>
         /// <returns>Коллекция документов.</returns>
-        IEnumerable<IDocumentComponent> Load();
+        IEnumerable<IComponent> Load();
     }
 }

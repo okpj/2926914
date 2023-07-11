@@ -1,14 +1,14 @@
 ﻿namespace DocumentExport.Model.Interfaces
 {
     /// <summary>
-    /// Комплект документов.
+    /// Комплект.
     /// </summary>
-    internal interface IDocumentComposite : IDocumentComponent
+    internal interface IComposite : IComponent
     {
         /// <summary>
         /// Добавить документ в комплект.
         /// </summary>
         /// <param name="documentComponent">Документ комплекта.</param>
-        void AddComponent(IDocumentComponent documentComponent);
+        void AddComponent(IComponent documentComponent);
     }
 }

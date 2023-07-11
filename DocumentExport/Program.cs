@@ -1,4 +1,5 @@
-﻿using DocumentExport.Storage;
+﻿using DocumentExport.Services.Adapter;
+using DocumentExport.Storage;
 
 namespace DocumentExport
 {
@@ -34,7 +35,7 @@ namespace DocumentExport
             IDocumentStorage documentStorage = new DocumentFileStorage();
             var documents = documentStorage.Load();
 
-            var exporter = new Exporter();
+            var exporter = new Exporter(new DocumentCryptoAdapter(), new DocumentArchiveAdapter());
             exporter.Export(documents, path, args.Contains(EncryptParameter), args.Contains(ArchiveParameter));
         }
 

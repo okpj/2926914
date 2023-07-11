@@ -3,11 +3,11 @@
 namespace DocumentExport.Model
 {
     /// <summary>
-    /// Базовый компонент документа.
+    /// Базовый компонент.
     /// </summary>
-    internal abstract class DocumentComponentBase : IDocumentComponent
+    internal abstract class ComponentBase : IComponent
     {
-        #region IDocumentComponent
+        #region IComponent
 
         public int Id { get; set; }
 

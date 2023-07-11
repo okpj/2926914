@@ -13,12 +13,12 @@ namespace DocumentExport
         /// <summary>
         /// Адаптер для сервиса шифрования.
         /// </summary>
-        private readonly IDocumentCryptoAdapter documentCryptoAdapter = new DocumentCryptoAdapter();
+        private readonly IDocumentCryptoAdapter documentCryptoAdapter;
 
         /// <summary>
         /// Адаптер для сервиса архивации.
         /// </summary>
-        private readonly IDocumentArchiveAdapter documentArchiveAdapter = new DocumentArchiveAdapter();
+        private readonly IDocumentArchiveAdapter documentArchiveAdapter;
 
         #endregion
 
@@ -31,7 +31,7 @@ namespace DocumentExport
         /// <param name="path">Путь до папки, в которую выполнить экспорт.</param>
         /// <param name="isNeedEncrypt">Признак того, нужно ли шифрование.</param>
         /// <param name="isNeedArchive">Признак того, нужна ли архивация.</param>
-        internal void Export(IEnumerable<IDocumentComponent> documentComponents, string path,
+        internal void Export(IEnumerable<IComponent> documentComponents, string path,
             bool isNeedEncrypt, bool isNeedArchive)
         {
             Console.WriteLine("--------------------");
@@ -47,6 +47,22 @@ namespace DocumentExport
 
             if (isNeedArchive)
                 this.documentArchiveAdapter.Archive(path);
+        }
+
+        #endregion
+
+        #region Конструктор
+
+        /// <summary>
+        /// Конструтор
+        /// </summary>
+        /// <param name="documentCryptoAdapter">Адаптер для шифрования</param>
+        /// <param name="documentArchiveAdapter">Адаптер для архивации</param>
+        public Exporter(IDocumentCryptoAdapter documentCryptoAdapter,
+            IDocumentArchiveAdapter documentArchiveAdapter)
+        {
+            this.documentCryptoAdapter = documentCryptoAdapter;
+            this.documentArchiveAdapter = documentArchiveAdapter;
         }
 
         #endregion
