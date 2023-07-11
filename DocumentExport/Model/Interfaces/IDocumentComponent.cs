@@ -11,11 +11,6 @@
         int Id { get; set; }
 
         /// <summary>
-        /// Родительский компонент документа.
-        /// </summary>
-        IDocumentComponent Parent { get; set; }
-
-        /// <summary>
         /// Название документа.
         /// </summary>
         string Name { get; set; }

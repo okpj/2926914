@@ -13,12 +13,12 @@ namespace DocumentExport
         /// <summary>
         /// Адаптер для сервиса шифрования.
         /// </summary>
-        private readonly IDocumentCryptoAdapter documentCryptoAdapter;
+        private readonly IDocumentCryptoAdapter documentCryptoAdapter = new DocumentCryptoAdapter();
 
         /// <summary>
         /// Адаптер для сервиса архивации.
         /// </summary>
-        private readonly IDocumentArchiveAdapter documentArchiveAdapter;
+        private readonly IDocumentArchiveAdapter documentArchiveAdapter = new DocumentArchiveAdapter();
 
         #endregion
 
@@ -43,23 +43,10 @@ namespace DocumentExport
             }
 
             if (isNeedEncrypt)
-                documentCryptoAdapter.Encrypt(path);
+                this.documentCryptoAdapter.Encrypt(path);
 
             if (isNeedArchive)
-                documentArchiveAdapter.Archive(path);
-        }
-
-        #endregion
-
-        #region Конструктор
-
-        /// <summary>
-        /// Конструктор.
-        /// </summary>
-        internal Exporter()
-        {
-            documentCryptoAdapter = new DocumentCryptoAdapter();
-            documentArchiveAdapter = new DocumentArchiveAdapter();
+                this.documentArchiveAdapter.Archive(path);
         }
 
         #endregion

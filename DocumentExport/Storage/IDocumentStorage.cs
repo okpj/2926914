@@ -1,6 +1,6 @@
 ﻿using DocumentExport.Model.Interfaces;
 
-namespace DocumentExport.Storage.Base
+namespace DocumentExport.Storage
 {
     /// <summary>
     /// Хранилище документов.

@@ -13,7 +13,7 @@ namespace DocumentExport.Model
         /// <summary>
         /// Состав комплекта документа.
         /// </summary>
-        public List<IDocumentComponent> DocumentComponentsCollection { get; set; }
+        private List<IDocumentComponent> documentComponentsCollection;
 
         #endregion
 
@@ -25,7 +25,7 @@ namespace DocumentExport.Model
             description.AppendFormat("{0}{1}", new string(' ', level * 2), this.Name);
             level++;
 
-            foreach (var item in this.DocumentComponentsCollection)
+            foreach (var item in this.documentComponentsCollection)
             {
                 description.AppendLine();
                 description.AppendFormat("{0}", item.GetDescription(level));
@@ -40,8 +40,7 @@ namespace DocumentExport.Model
 
         public void AddComponent(IDocumentComponent documentComponent)
         {
-            documentComponent.Parent = this;
-            this.DocumentComponentsCollection.Add(documentComponent);
+            this.documentComponentsCollection.Add(documentComponent);
         }
 
         #endregion
@@ -53,7 +52,7 @@ namespace DocumentExport.Model
         /// </summary>
         public DocumentComposite()
         {
-            this.DocumentComponentsCollection = new List<IDocumentComponent>();
+            this.documentComponentsCollection = new List<IDocumentComponent>();
         }
 
         #endregion

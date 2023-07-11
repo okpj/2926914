@@ -1,5 +1,4 @@
 ﻿using DocumentExport.Storage;
-using DocumentExport.Storage.Base;
 
 namespace DocumentExport
 {
@@ -13,12 +12,12 @@ namespace DocumentExport
         /// <summary>
         /// Параметр, указывющий на необходимость архивации.
         /// </summary>
-        private const string archiveParameter = "archive";
+        private const string ArchiveParameter = "archive";
 
         /// <summary>
         /// Параметр, указывющий на необходимость шифрования.
         /// </summary>
-        private const string encryptParameter = "encrypt";
+        private const string EncryptParameter = "encrypt";
 
         #endregion
 
@@ -32,11 +31,11 @@ namespace DocumentExport
         {
             string path = @"C:\docs";
 
-            DocumentStorageManagerBase documentStorageManager = new DocumentFileStorageManager();
-            var documents = documentStorageManager.LoadDocuments();
+            IDocumentStorage documentStorage = new DocumentFileStorage();
+            var documents = documentStorage.Load();
 
             var exporter = new Exporter();
-            exporter.Export(documents, path, args.Contains(encryptParameter), args.Contains(archiveParameter));
+            exporter.Export(documents, path, args.Contains(EncryptParameter), args.Contains(ArchiveParameter));
         }
 
         #endregion
