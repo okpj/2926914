@@ -9,7 +9,7 @@
 
     public override string GetDescription(int level)
     {
-      return $"{this.CreateMargin(level)}{this.Name}";
+      return $"{this.CreateIndent(level)}{this.Name}";
     }
 
     #endregion

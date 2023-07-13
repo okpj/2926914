@@ -18,9 +18,9 @@
     public string Name { get; set; }
 
     /// <summary>
-    /// Коэффициент для отступа.
+    /// Размер отступа.
     /// </summary>
-    private const int MarginCoefficient = 2;
+    private const int IndentSize = 2;
 
     #endregion
 
@@ -38,9 +38,9 @@
     /// </summary>
     /// <param name="level">Уровень вложенности компонента.</param>
     /// <returns>Строка отступа</returns>
-    protected string CreateMargin(int level)
+    protected string CreateIndent(int level)
     {
-      return new string(' ', level * MarginCoefficient);
+      return new string(' ', level * IndentSize);
     }
 
     #endregion

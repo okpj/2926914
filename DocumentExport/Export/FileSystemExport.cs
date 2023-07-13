@@ -5,7 +5,7 @@ namespace DocumentExport.Export
   /// <summary>
   /// Стратегия для экспорта в файловую систему.
   /// </summary>
-  internal class FileSystemExport : IExport
+  internal class FileSystemExport : IExporter
   {
     #region Поля и свойства
 
@@ -17,13 +17,13 @@ namespace DocumentExport.Export
     /// <summary>
     /// Вспомогательные обработчики.
     /// </summary>
-    private readonly IEnumerable<ExportHandler> handlersCollection;
+    private readonly IEnumerable<ExportHandler> handlers;
 
     #endregion
 
-    #region IExportStrategy
+    #region IExporter
 
-    public void ExecuteExport(IEnumerable<ComponentBase> documentComponents)
+    public void Export(IEnumerable<ComponentBase> documentComponents)
     {
       Console.WriteLine($"Выполнен экспорт в папку {path}");
       Console.WriteLine("--------------------");
@@ -34,7 +34,7 @@ namespace DocumentExport.Export
         Console.WriteLine(item.GetDescription(1));
       }
 
-      foreach (var handler in this.handlersCollection)
+      foreach (var handler in this.handlers)
       {
         handler.Invoke();
       }
@@ -52,7 +52,7 @@ namespace DocumentExport.Export
     internal FileSystemExport(string path, IEnumerable<ExportHandler> handlersCollection)
     {
       this.path = path;
-      this.handlersCollection = handlersCollection;
+      this.handlers = handlersCollection;
     }
 
     #endregion

@@ -3,14 +3,14 @@
 namespace DocumentExport.Export
 {
   /// <summary>
-  /// Стратегия экспорта.
+  /// Экспортёр.
   /// </summary>
-  internal interface IExport
+  internal interface IExporter
   {
     /// <summary>
     /// Выполнить экспорт.
     /// </summary>
     /// <param name="documentComponents">Данные для экспорта.</param>
-    void ExecuteExport(IEnumerable<ComponentBase> documentComponents);
+    void Export(IEnumerable<ComponentBase> documentComponents);
   }
 }

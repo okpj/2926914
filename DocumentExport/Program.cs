@@ -49,9 +49,9 @@ namespace DocumentExport
         handlers.Add(new ExportHandler(() => documentArchiveAdapter.Archive(path)));
       }
 
-      IExport exportStrategy = new FileSystemExport(path, handlers);
+      IExporter exportStrategy = new FileSystemExport(path, handlers);
 
-      exportStrategy.ExecuteExport(documents);
+      exportStrategy.Export(documents);
     }
 
     #endregion
